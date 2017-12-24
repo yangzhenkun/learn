@@ -1,4 +1,4 @@
-package com.yasin.algorithm;
+package com.yasin.datastruct.rbtree;
 
 import org.junit.Test;
 

@@ -1,4 +1,4 @@
-package com.yasin.algorithm;
+package com.yasin.datastruct.rbtree;
 
 /**
  * Java 语言: 红黑树
