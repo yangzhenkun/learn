@@ -297,7 +297,6 @@ public class RBTree<T extends Comparable<T>> {
      * 
      */
     private void rightRotate(RBTNode<T> y) {
-        // 设置x是当前节点的左孩子。
         RBTNode<T> x = y.left;
 
         // 将 “x的右孩子” 设为 “y的左孩子”；
