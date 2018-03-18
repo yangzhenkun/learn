@@ -73,6 +73,8 @@ public class LRU {
 		node.next=oldHead;
 		head.next=node;
 		oldHead.pre=node;
+		
+		cache.put(node.key, node);
 	}
 	
 	private void remove(Node node){
@@ -85,6 +87,8 @@ public class LRU {
 		
 		node.next=null;
 		node.pre=null;
+		
+		cache.remove(node.key);
 	}
 	
 	
@@ -96,7 +100,6 @@ public class LRU {
 		
 		
 	}
-	
 	
 	
 	

@@ -104,7 +104,7 @@ public class Java8Learn {
 		for(int i=1;i<=5;i++)
 			list.add(i);
 		
-		list.stream().filter(i->(int)i%2==1).forEach(System.out::println);
+//		list.stream().filter(i->(int)i%2==1).forEach(System.out::println);
 		
 		/**
 		 * 这是对Set的流式操作，
