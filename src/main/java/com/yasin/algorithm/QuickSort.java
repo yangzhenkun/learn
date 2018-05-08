@@ -2,38 +2,43 @@ package com.yasin.algorithm;
 
 public class QuickSort {
 
-	public static void sort(int arr[], int low, int high) {
-
-		int l = low;
-		int h = high;
-		int povit = arr[low];
-
-		while (l < h) {
-			while (l < h && arr[h] >= povit)
-				h--;
-			if (l < h) {
-				int temp = arr[h];
-				arr[h] = arr[l];
-				arr[l] = temp;
-				l++;
+	public static void sort(int data[], int left, int right) {
+		
+		if(left>=right)
+			return;
+		
+		int head = left;
+		int tail = right;
+		int flag = data[head];
+		
+		while(head<tail){
+			
+			while(head<tail&&flag<=data[tail])
+				tail--;
+			if(head<tail){
+				data[head]=data[tail];
+				head++;
 			}
-
-			while (l < h && arr[l] <= povit)
-				l++;
-
-			if (l < h) {
-				int temp = arr[h];
-				arr[h] = arr[l];
-				arr[l] = temp;
-				h--;
+			
+			while(head<tail&&flag>=data[head])
+				head++;
+			
+			if(head<tail){
+				data[tail]=data[head];
+				tail--;
 			}
+			
+			
 		}
-
-		if (l > low)
-			sort(arr, low, l - 1);
-		if (h < high)
-			sort(arr, l + 1, high);
-
+		
+		
+		data[head]=flag;
+		
+		sort(data,left,head-1);
+		sort(data,tail+1,right);
+		
+		
+		
 	}
 
 	public static void main(String[] args) {
