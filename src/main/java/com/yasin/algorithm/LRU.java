@@ -13,7 +13,7 @@ import java.util.Map;
  * @author yangzhenkun
  *
  */
-public class LRU {
+public class LRUMaster{
 
 	private Map<String,Node> cache = new HashMap<>();
 	
