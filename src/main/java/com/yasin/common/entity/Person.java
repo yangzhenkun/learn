@@ -1,9 +1,14 @@
 package com.yasin.common.entity;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.yasin.check.Check;
+
 public class Person {
 
-	private long id;
+	private Long id;
 	
+	@Check
 	private String name;
 
 	public long getId() {
@@ -22,11 +27,13 @@ public class Person {
 		this.name = name;
 	}
 
-	public Person(long id, String name) {
+	public Person(Long id, String name) {
 		super();
 		this.id = id;
 		this.name = name;
 	}
+	
+	
 
 	
 	/**
