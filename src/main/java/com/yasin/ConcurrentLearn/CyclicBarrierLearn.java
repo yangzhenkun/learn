@@ -23,8 +23,8 @@ public class CyclicBarrierLearn {
 
 		try {
 			cb.await();
-		} catch (InterruptedException | BrokenBarrierException e1) {
-			e1.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 		
 		System.out.println("main thread");
@@ -48,7 +48,6 @@ public class CyclicBarrierLearn {
 			this.cb = cb;
 		}
 
-		@Override
 		public void run() {
 			System.out.println("cb1开始执行了");
 			try {
@@ -75,7 +74,6 @@ public class CyclicBarrierLearn {
 			this.cb = cb;
 		}
 
-		@Override
 		public void run() {
 			System.out.println("cb2开始执行了");
 			try {

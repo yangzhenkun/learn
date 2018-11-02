@@ -1,5 +1,7 @@
 package com.yasin.lock;
 
+import java.util.concurrent.TimeUnit;
+
 /**
  * 
  * @author yasin 死锁demo
@@ -17,6 +19,11 @@ public class DeadLock {
 				while (true) {
 					synchronized (a) {
 						System.out.println(Thread.currentThread().getName() + "a run...");
+						try {
+							TimeUnit.SECONDS.sleep(5);
+						} catch (InterruptedException e) {
+							e.printStackTrace();
+						}
 						synchronized (b) {
 							System.out.println(Thread.currentThread().getName() + "b run...");
 						}
