@@ -1,6 +1,6 @@
 package com.yasin.common.entity;
 
-import com.yasin.check.Check;
+import com.yasin.impltry.check.Check;
 import lombok.Data;
 import lombok.ToString;
 
