@@ -12,6 +12,8 @@ import java.util.concurrent.*;
 import java.util.stream.Collectors;
 
 /**
+ * 线程阻塞获取返回值
+ *
  * @author yangzhenkun
  * @create 2018-12-12 17:33
  */
