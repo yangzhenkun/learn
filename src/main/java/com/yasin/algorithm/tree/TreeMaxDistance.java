@@ -1,4 +1,4 @@
-package com.yasin.algorithm;
+package com.yasin.algorithm.tree;
 
 import com.yasin.algorithm.rbtree.Tree;
 import org.junit.Test;
@@ -92,7 +92,7 @@ public class TreeMaxDistance {
 
 
     @Test
-    public void test() {
+    public void testFalse() {
 
         /**
                                O
@@ -142,5 +142,6 @@ public class TreeMaxDistance {
 
 
     }
+
 
 }
