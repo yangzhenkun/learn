@@ -19,7 +19,7 @@ public class HXBL {
 
     List<TreeNode> path = new ArrayList<>();
 
-    int des = 115;
+    int des = 60;
 
     int temp = 0;
 
@@ -49,7 +49,7 @@ public class HXBL {
                 System.out.println(p.value);
             });
 
-            return;
+            System.out.println("=======");
         }
 
         bl(node.leftNode);
@@ -68,16 +68,16 @@ public class HXBL {
         TreeNode t41 = new TreeNode(4);
         TreeNode t42 = new TreeNode(9);
         TreeNode t43 = new TreeNode(11);
-        TreeNode t44 = new TreeNode(16);
-        TreeNode t45 = new TreeNode(25);
-        TreeNode t46 = new TreeNode(31);
-        TreeNode t47 = new TreeNode(45);
-        TreeNode t48 = new TreeNode(55);
+        TreeNode t44 = new TreeNode(15);
+//        TreeNode t45 = new TreeNode(25);
+//        TreeNode t46 = new TreeNode(31);
+//        TreeNode t47 = new TreeNode(45);
+//        TreeNode t48 = new TreeNode(55);
 
         TreeNode t31 = new TreeNode(7);
         TreeNode t32 = new TreeNode(15);
-        TreeNode t33 = new TreeNode(30);
-        TreeNode t34 = new TreeNode(50);
+//        TreeNode t33 = new TreeNode(30);
+//        TreeNode t34 = new TreeNode(50);
 
         TreeNode t21 = new TreeNode(10);
         TreeNode t22 = new TreeNode(40);
@@ -89,20 +89,20 @@ public class HXBL {
 
         t21.leftNode = t31;
         t21.rightNode = t32;
-        t22.leftNode = t33;
-        t22.rightNode = t34;
+
+//        t22.leftNode = t33;
+//        t22.rightNode = t34;
 
         t31.leftNode = t41;
         t31.rightNode = t42;
         t32.leftNode = t43;
         t32.rightNode = t44;
-        t33.leftNode = t45;
-        t33.rightNode = t46;
-        t34.leftNode = t47;
-        t34.rightNode = t48;
+//        t33.leftNode = t45;
+//        t33.rightNode = t46;
+//        t34.leftNode = t47;
+//        t34.rightNode = t48;
 
         bl(root);
-
     }
 
 }
