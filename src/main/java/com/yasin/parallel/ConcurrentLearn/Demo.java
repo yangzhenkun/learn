@@ -12,8 +12,5 @@ public class Demo {
 	public void setA(int a) {
 		this.a.set(a);
 	}
-	
-	
-	
-	
+
 }
