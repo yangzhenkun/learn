@@ -120,11 +120,6 @@
             <version>1.0.2</version>
         </dependency>
 
-        <dependency>
-            <groupId>com.bj58.sfb</groupId>
-            <artifactId>com.bj58.sfb.nlplib</artifactId>
-            <version>1.2.2</version>
-        </dependency>
 
         <dependency>
             <groupId>org.ansj</groupId>
