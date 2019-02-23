@@ -132,7 +132,23 @@
             <artifactId>jedis</artifactId>
             <version>3.0.1</version>
         </dependency>
-
-
     </dependencies>
+
+
+    <build>
+        <plugins>
+            <!-- 指定jdk版本 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.1</version>
+                <configuration>
+                    <!-- 源码的编译器版本 -->
+                    <source>1.8</source>
+                    <!-- class的编译器版本 -->
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>
