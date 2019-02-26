@@ -17,7 +17,9 @@ public class TOPK {
         int[] array = {1, 10, 2, 20, 3, 30, 4, 40, 5, 50, 6, 60, 7, 70, 8, 80, 9, 90};
         int k = 10;
 
-        topk2(array, k);
+//        topk2(array, k);
+
+        partion(array,0,array.length-1,k);
 
         for (int i = 0; i < k; i++) {
             System.out.println(array[i]);
@@ -26,7 +28,9 @@ public class TOPK {
     }
 
     //单次排序
-    private int partion(int[] data, int low, int high) {
+    private void partion(int[] data, int low, int high,int k) {
+        int start = low;
+        int end = high;
         int mid = data[low];
         while (low < high) {
             while (low < high && data[high] <= mid) {
@@ -44,17 +48,22 @@ public class TOPK {
                 high--;
             }
         }
-
         data[low] = mid;
+        if(low>k){
+            partion(data,start,low-1,k);
+        }else if(low<k){
+            partion(data,low+1,end,k);
+        }
 
-        return low;
+
     }
 
     private void topk2(int[] data, int k) {
         k--;//因为数组从0开始存储，对k减一
         int high = data.length - 1;
         int low = 0;
-        int index = partion(data, low, high);
+        int index = 0;
+        partion(data, low, high,k);
 
         while (index != k) {
 
@@ -63,7 +72,7 @@ public class TOPK {
             } else {
                 low = index + 1;
             }
-            index = partion(data, low, high);
+            partion(data, low, high,k);
 
         }
 
