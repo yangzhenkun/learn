@@ -24,7 +24,7 @@ public class Main {
 		CountDownLatch count = new CountDownLatch(10);
 		RejectedExecutionHandler handler = new ThreadPoolExecutor.DiscardPolicy();
 
-		Executor pool = new ThreadPoolExecutor(3,5, 60, TimeUnit.SECONDS, new LinkedBlockingQueue<>());
+		Executor pool = new ThreadPoolExecutor(5,5, 60, TimeUnit.SECONDS, new LinkedBlockingQueue<>());
 		try {
 
 			for (int i = 0; i < 10; i++) {
@@ -35,7 +35,7 @@ public class Main {
 		}
 		
 		try {
-			Thread.sleep(1000*20);
+			Thread.sleep(1000*2000);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
