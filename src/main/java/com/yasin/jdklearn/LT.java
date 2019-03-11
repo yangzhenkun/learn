@@ -13,12 +13,10 @@ public class LT {
     @Test
     public void run() {
 
-        int a = 16;
-        a += 10;
+        byte[] a = {1,2};
 
-        int b = a;
 
-        System.out.println(a);
+        System.out.println(Integer.MAX_VALUE);
 
 
     }

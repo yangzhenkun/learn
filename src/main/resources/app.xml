@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+
+
+
+
+            http://www.springframework.org/schema/context
+            http://www.springframework.org/schema/context/spring-context-3.0.xsd"
+>
+
+    <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="properties" ref="configProperties"/>
+    </bean>
+
+    <bean id="configProperties" class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+        <property name="locations">
+            <list>
+                <value>classpath:*/*.properties</value>
+            </list>
+        </property>
+    </bean>
+
+    <context:component-scan base-package="com.yasin.spring"/>
+
+    <bean id="customerService" class="com.yasin.spring.aop.CustomerService">
+        <property name="name" value="yasin"/>
+        <property name="url" value="www.baidu.com"/>
+    </bean>
+
+    <bean id="csBeforeMethod" class="com.yasin.spring.aop.CSBeforeMethod"/>
+    <bean id="csAfterMethod" class="com.yasin.spring.aop.CSAfterMethod"/>
+    <bean id="csAroundMethod" class="com.yasin.spring.aop.CSAroundMethod"/>
+
+    <!--<bean id="customeServiceProxy" class="org.springframework.aop.framework.ProxyFactoryBean">-->
+
+        <!--<property name="target" ref="customerService"/>-->
+        <!--<property name="interceptorNames">-->
+            <!--<list>-->
+                <!--<value>customerAdvisor</value>-->
+            <!--</list>-->
+        <!--</property>-->
+    <!--</bean>-->
+
+    <!--自动匹配类，不用为每一个类再去创建Proxy -->
+    <bean class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
+        <property name="beanNames">
+            <list>
+                <value>*Service</value>
+            </list>
+        </property>
+        <property name="interceptorNames">
+            <list>
+                <value>customerAdvisor</value>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="customerCut" class="org.springframework.aop.support.NameMatchMethodPointcut">
+        <property name="mappedName" value="printName"/>
+    </bean>
+
+    <bean id="customerAdvisor" class="org.springframework.aop.support.DefaultPointcutAdvisor">
+
+        <property name="pointcut" ref="customerCut"/>
+        <property name="advice" ref="csAroundMethod"/>
+    </bean>
+</beans>
