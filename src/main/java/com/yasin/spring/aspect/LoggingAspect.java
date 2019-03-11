@@ -26,7 +26,7 @@ public class LoggingAspect {
         System.out.println("******");
     }
 
-    @Around("execution(* com.yasin.spring.aspect.CustomerBoImpl.addCustomerReturnValue(..))")
+//    @Around("execution(* com.yasin.spring.aspect.CustomerBoImpl.addCustomerReturnValue(..))")
     public Object logAround(ProceedingJoinPoint jp) throws Throwable {
 
         MethodSignature signature = (MethodSignature) jp.getSignature();
