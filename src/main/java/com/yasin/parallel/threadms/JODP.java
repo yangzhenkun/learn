@@ -1,5 +1,7 @@
 package com.yasin.parallel.threadms;
 
+import java.util.concurrent.TimeUnit;
+
 /**
  * 面试题：两个线程，一次打印即偶数
  *
@@ -24,7 +26,7 @@ public class JODP {
                     try {
                         Task.class.wait();//当前线程wait，释放锁，线程进入睡眠状态
 
-                        System.out.println(Thread.currentThread().getName());//已经沉睡的线程醒来继续执行
+//                        System.out.println(Thread.currentThread().getName());//已经沉睡的线程醒来继续执行
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
@@ -39,8 +41,18 @@ public class JODP {
 
     public static void main(String[] args) {
 
-        new Thread(new Task(),"偶数").start();
-        new Thread(new Task(),"奇数").start();
+        int n = 5;
+
+        for (int i = 0; i < n; i++) {
+
+            new Thread(new Task(),""+i).start();
+            try {
+                TimeUnit.SECONDS.sleep(1);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+        }
 
     }
 
